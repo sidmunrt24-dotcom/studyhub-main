@@ -1,6 +1,7 @@
 // src/pages/AskDoubt.js
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import "./AskDoubt.css";
 
 const API = process.env.REACT_APP_API_BASE || "https://studyhub-21ux.onrender.com/api";
 
@@ -55,40 +56,40 @@ export default function AskDoubt() {
   return (
     <>
       <Navbar />
-      <div style={{ padding: 20 }}>
-        <h2>Ask a Question</h2>
+      <div className="ask-doubt-container">
+        <h2 className="ask-doubt-title">Ask a Question</h2>
 
-        <form onSubmit={postDoubt} style={{ marginBottom: 16 }}>
+        <form onSubmit={postDoubt} className="doubt-form">
           <input
             placeholder="Short question"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            style={{ width: "100%", padding: 8, marginBottom: 8 }}
+            className="doubt-input"
           />
           <textarea
             placeholder="Description (optional)"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
-            style={{ width: "100%", padding: 8, height: 90 }}
+            className="doubt-textarea"
           />
-          <div style={{ marginTop: 8 }}>
+          <div className="doubt-form-actions">
             <button className="btn btn-primary" type="submit">Post Question</button>
           </div>
         </form>
 
-        <h3>Community Questions</h3>
-        {loading ? <p>Loading...</p> : doubts.length === 0 ? <p>No questions yet.</p> : (
-          <div style={{ display: "grid", gap: 12 }}>
+        <h3 className="community-title">Community Questions</h3>
+        {loading ? <p className="loading-text">Loading...</p> : doubts.length === 0 ? <p className="empty-state">No questions yet.</p> : (
+          <div className="doubts-grid">
             {doubts.map((d) => (
-              <div key={d._id || d.id} style={{ border: "1px solid #eee", padding: 12, borderRadius: 8 }}>
-                <h4>{d.question}</h4>
-                {d.description && <p>{d.description}</p>}
+              <div key={d._id || d.id} className="doubt-card">
+                <h4 className="doubt-question">{d.question}</h4>
+                {d.description && <p className="doubt-description">{d.description}</p>}
                 {(d.answers || []).length > 0 ? (
-                  <div style={{ marginTop: 8 }}>
-                    <strong>Answers</strong>
-                    {(d.answers || []).map((a, i) => <div key={i}>{a.text}</div>)}
+                  <div className="answers-section">
+                    <strong className="answers-label">Answers</strong>
+                    {(d.answers || []).map((a, i) => <div key={i} className="answer-text">{a.text}</div>)}
                   </div>
-                ) : <p style={{ color: "#666" }}>No answers yet</p>}
+                ) : <p className="no-answers">No answers yet</p>}
               </div>
             ))}
           </div>
