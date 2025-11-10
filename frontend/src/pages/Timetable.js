@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
+import "./Timetable.css";
 
 const API = process.env.REACT_APP_API_BASE || "https://studyhub-21ux.onrender.com/api";
 
@@ -54,8 +55,8 @@ export default function Timetable() {
     return (
       <>
         <Navbar />
-        <div style={{ padding: 20 }}>
-          <h2>Timetable</h2>
+        <div className="timetable-container">
+          <h2 className="timetable-title">Timetable</h2>
           <p>Please <Link to="/login">login</Link> to view your timetable.</p>
         </div>
       </>
@@ -65,31 +66,31 @@ export default function Timetable() {
   return (
     <>
       <Navbar />
-      <div style={{ padding: 20 }}>
-        <h2>Your Timetable</h2>
-        <div style={{ marginBottom: 12 }}>
+      <div className="timetable-container">
+        <h2 className="timetable-title">Your Timetable</h2>
+        <div className="timetable-actions">
           <button onClick={addRow} className="btn btn-primary">+ Add Class</button>
         </div>
 
-        {loading ? <p>Loading...</p> : rows.length === 0 ? (
-          <p>No classes yet</p>
+        {loading ? <p className="loading-text">Loading...</p> : rows.length === 0 ? (
+          <p className="empty-state">No classes yet</p>
         ) : (
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <table className="timetable-table">
             <thead>
               <tr>
-                <th style={th}>Day</th>
-                <th style={th}>Start</th>
-                <th style={th}>End</th>
-                <th style={th}>Title</th>
+                <th>Day</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Title</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
                 <tr key={r._id || r.id}>
-                  <td style={td}>{r.day}</td>
-                  <td style={td}>{r.start}</td>
-                  <td style={td}>{r.end}</td>
-                  <td style={td}>{r.title}</td>
+                  <td>{r.day}</td>
+                  <td>{r.start}</td>
+                  <td>{r.end}</td>
+                  <td>{r.title}</td>
                 </tr>
               ))}
             </tbody>
@@ -99,6 +100,3 @@ export default function Timetable() {
     </>
   );
 }
-
-const th = { borderBottom: "1px solid #eee", padding: 8, textAlign: "left" };
-const td = { padding: 8, borderBottom: "1px solid #fafafa" };
