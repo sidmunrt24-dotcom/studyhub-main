@@ -1,139 +1,210 @@
-/* Home page styles for StudyHub (simple, responsive) */
-
+/* Home Page Styling */
 .home-page {
   min-height: 100vh;
-  background: #f5f7fb;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color: #222;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
-  background: linear-gradient(180deg, rgba(6,78,159,0.06), rgba(102,16,242,0.03));
-  padding: 48px 20px;
+  background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+  padding: 5rem 2rem;
   text-align: center;
+  color: white;
 }
 
-.hero h1 {
-  font-size: 2rem;
-  margin: 0 0 8px;
-  color: #0b3a83;
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
 }
 
-.hero p {
-  margin: 0 0 18px;
-  color: #475569;
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin: 0 0 2rem;
+  opacity: 0.95;
+  font-weight: 400;
 }
 
-/* CTA */
-.cta .btn {
-  display: inline-block;
-  background: #007bff;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 8px;
-  text-decoration: none;
+.btn {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: var(--radius);
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.cta .btn:hover {
-  background: #0056b3;
+.btn-accent {
+  background: var(--yellow);
+  color: var(--blue-900);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Feature strip */
-.strip {
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(254, 205, 69, 0.3);
+}
+
+/* Features Section */
+.features-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--blue-500);
+}
+
+.feature-emoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 0.5rem;
+}
+
+.feature-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Courses Section */
+.courses-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(45, 125, 210, 0.03);
+  border-radius: var(--radius-lg);
+}
+
+.courses-grid {
   display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28px 20px;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
-.strip-left {
-  flex: 1 1 320px;
+.course-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  flex: 1 1 280px;
+  max-width: 320px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.strip-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-  flex: 2 1 480px;
+.course-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Card */
-.card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 14px;
-  box-shadow: 0 6px 18px rgba(20, 40, 80, 0.04);
-  text-align: left;
-}
-
-.card .icon {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.card-title {
+.course-title {
+  font-size: 1.125rem;
   font-weight: 700;
-  margin-bottom: 6px;
-  color: #0f172a;
+  color: var(--blue-900);
+  margin: 0 0 0.5rem;
 }
 
-.card-text {
-  color: #64748b;
-  font-size: 14px;
+.course-meta {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin: 0 0 1rem;
 }
 
-/* Courses section */
-.section {
-  padding: 24px 20px;
+.course-link {
+  color: var(--blue-700);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-}
-
-/* Course card */
-.course {
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px;
-  border: 1px solid #eef2ff;
-}
-
-.course-badge {
-  display: inline-block;
-  background: #e6f0ff;
-  color: #0b3a83;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  margin-bottom: 8px;
+.course-link:hover {
+  color: var(--blue-500);
+  text-decoration: underline;
 }
 
 /* Footer */
-.footer {
+.home-footer {
+  padding: 2rem;
   text-align: center;
-  padding: 18px 12px;
-  color: #64748b;
-  font-size: 14px;
-  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-/* Responsive */
-@media (max-width: 760px) {
-  .hero h1 { font-size: 1.6rem; }
-  .strip { flex-direction: column; gap: 16px; }
-  .strip-cards { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .features-section,
+  .courses-section {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .courses-grid {
+    flex-direction: column;
+  }
+
+  .course-card {
+    max-width: 100%;
+  }
 }
