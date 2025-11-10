@@ -72,8 +72,8 @@ export default function Notes() {
     return (
       <>
         <Navbar />
-        <div style={{ padding: 20 }}>
-          <h2>Notes</h2>
+        <div className="notes-container">
+          <h2 className="notes-title">Notes</h2>
           <p>Please <Link to="/login">login</Link> to view and save notes.</p>
         </div>
       </>
@@ -83,34 +83,34 @@ export default function Notes() {
   return (
     <>
       <Navbar />
-      <div style={{ padding: 20 }}>
-        <h2>Your Notes</h2>
+      <div className="notes-container">
+        <h2 className="notes-title">Your Notes</h2>
 
-        <div style={{ marginBottom: 12 }}>
+        <div className="note-input-section">
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder="Write your note..."
-            style={{ width: "100%", height: 90 }}
+            className="note-textarea"
           />
-          <div style={{ marginTop: 8 }}>
+          <div className="note-input-actions">
             <button onClick={addNote} className="btn btn-primary">Save Note</button>
           </div>
         </div>
 
-        {loading ? <p>Loading...</p> : notes.length === 0 ? (
-          <p>No notes yet — create one!</p>
+        {loading ? <p className="loading-text">Loading...</p> : notes.length === 0 ? (
+          <p className="empty-state">No notes yet — create one!</p>
         ) : (
-          <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+          <ul className="notes-list">
             {notes.map((n) => (
-              <li key={n._id || n.id} style={{ border: "1px solid #eee", padding: 8, marginBottom: 8, borderRadius: 6 }}>
-                <div style={{ display: "flex", justifyContent: "space-between" }}>
-                  <div>{n.title || "Untitled"}</div>
-                  <div>
-                    <button onClick={() => deleteNote(n)} style={{ marginLeft: 8 }}>Delete</button>
+              <li key={n._id || n.id} className="note-card">
+                <div className="note-header">
+                  <div className="note-title">{n.title || "Untitled"}</div>
+                  <div className="note-actions">
+                    <button onClick={() => deleteNote(n)} className="btn btn-delete">Delete</button>
                   </div>
                 </div>
-                <div style={{ marginTop: 6 }}>{n.content}</div>
+                <div className="note-content">{n.content}</div>
               </li>
             ))}
           </ul>
