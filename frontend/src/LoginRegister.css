@@ -1,0 +1,160 @@
+/* ====== Login / Register Page Styling ====== */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #007bff 0%, #00c6ff 100%);
+  font-family: "Poppins", sans-serif;
+  padding: 1rem;
+}
+
+.auth-card {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 2rem 2.5rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.auth-toggle {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.auth-toggle span {
+  color: #007bff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.auth-toggle span:hover {
+  color: #0056b3;
+}
+
+/* Input fields */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.auth-form label {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.auth-input {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.auth-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  outline: none;
+}
+
+/* Submit button */
+.auth-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.auth-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.auth-btn:active {
+  transform: translateY(0);
+}
+
+/* Error or success messages */
+.message {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+}
+
+.message.error {
+  background: rgba(255, 0, 0, 0.1);
+  color: #cc0000;
+}
+
+.message.success {
+  background: rgba(0, 255, 0, 0.1);
+  color: #007a00;
+}
+
+/* Divider line */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.2rem 0;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  margin: 0 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .auth-title {
+    font-size: 1.6rem;
+  }
+
+  .auth-btn {
+    padding: 0.8rem;
+  }
+}

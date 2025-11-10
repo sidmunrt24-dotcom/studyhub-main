@@ -1,0 +1,314 @@
+/* ============================
+   Notes Page Styling
+   ============================ */
+
+.notes-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+}
+
+.topbar {
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand .logo {
+  font-size: 1.5rem;
+}
+
+.brand .title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.actions .btn {
+  text-decoration: none;
+  background: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.actions .btn:hover {
+  background: #0056b3;
+}
+
+/* ===== Main Notes Layout ===== */
+.notes-container {
+  display: flex;
+  flex: 1;
+  min-height: 85vh;
+}
+
+.notes-sidebar {
+  width: 280px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sidebar-header h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.note-item:hover {
+  background: #f0f8ff;
+}
+
+.note-item.active {
+  background: #e6f0ff;
+  border: 1px solid #007bff;
+}
+
+.note-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.note-preview {
+  font-size: 13px;
+  color: #666;
+}
+
+.btn-delete {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #d9534f;
+}
+
+.btn-delete:hover {
+  color: #b52b27;
+}
+
+/* ===== Editor Section ===== */
+.notes-editor {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.editor-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-title-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.note-title-input:focus {
+  border-color: #007bff;
+}
+
+.note-content-textarea {
+  flex: 1;
+  min-height: 300px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+}
+
+.note-content-textarea:focus {
+  border-color: #007bff;
+}
+
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #007bff;
+  color: #007bff;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.editor-placeholder {
+  text-align: center;
+  color: #777;
+  margin-top: 100px;
+}
+
+.editor-placeholder button {
+  margin-top: 10px;
+}
+
+/* ===== Toast Message ===== */
+.toast {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  animation: fadeInOut 3s ease;
+  z-index: 999;
+}
+
+.toast.info {
+  background: #007bff;
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #dc3545;
+}
+
+.toast.warning {
+  background: #ffc107;
+  color: #333;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .notes-container {
+    flex-direction: column;
+  }
+
+  .notes-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .notes-editor {
+    padding: 15px;
+  }
+
+  .note-content-textarea {
+    min-height: 200px;
+  }
+}
