@@ -16,77 +16,61 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="home-page" style={{ padding: 20 }}>
-        <section className="hero" style={{ padding: 30, textAlign: "center" }}>
-          <h1 style={{ marginBottom: 8 }}>An Investment In Knowledge Pays The Best Interest</h1>
-          <p style={{ marginBottom: 16 }}>
+      <div className="home-page">
+        <section className="hero">
+          <h1 className="hero-title">An Investment In Knowledge Pays The Best Interest</h1>
+          <p className="hero-subtitle">
             StudyHub — notes, timetable, courses and community help all in one place.
           </p>
           <Link to="/courses" className="btn btn-accent">Explore Courses</Link>
         </section>
 
-        <section style={{ marginTop: 20 }}>
-          <h2>Explore</h2>
-          <div style={{ display: "grid", gap: 12, gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))" }}>
+        <section className="features-section">
+          <h2 className="section-title">Explore</h2>
+          <div className="features-grid">
             {features.map((f) => (
               f.link.startsWith("http") ? (
-                <a key={f.title} href={f.link} target="_blank" rel="noopener noreferrer" className="card-link" style={cardStyle}>
-                  <div style={{ fontSize: 28 }}>{f.emoji}</div>
-                  <h3>{f.title}</h3>
-                  <p>{f.desc}</p>
+                <a key={f.title} href={f.link} target="_blank" rel="noopener noreferrer" className="feature-card">
+                  <div className="feature-emoji">{f.emoji}</div>
+                  <h3 className="feature-title">{f.title}</h3>
+                  <p className="feature-desc">{f.desc}</p>
                 </a>
               ) : (
-                <Link key={f.title} to={f.link} className="card-link" style={cardStyle}>
-                  <div style={{ fontSize: 28 }}>{f.emoji}</div>
-                  <h3>{f.title}</h3>
-                  <p>{f.desc}</p>
+                <Link key={f.title} to={f.link} className="feature-card">
+                  <div className="feature-emoji">{f.emoji}</div>
+                  <h3 className="feature-title">{f.title}</h3>
+                  <p className="feature-desc">{f.desc}</p>
                 </Link>
               )
             ))}
           </div>
         </section>
 
-        <section style={{ marginTop: 24 }}>
-          <h2>Popular Courses</h2>
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <div style={courseCard}>
-              <h4>Intro to Python</h4>
-              <p>Beginner · 8 weeks</p>
-              <a href="https://www.youtube.com/watch?v=nLRL_NcnK-4" target="_blank" rel="noreferrer">Preview</a>
+        <section className="courses-section">
+          <h2 className="section-title">Popular Courses</h2>
+          <div className="courses-grid">
+            <div className="course-card">
+              <h4 className="course-title">Intro to Python</h4>
+              <p className="course-meta">Beginner · 8 weeks</p>
+              <a href="https://www.youtube.com/watch?v=nLRL_NcnK-4" target="_blank" rel="noreferrer" className="course-link">Preview</a>
             </div>
-            <div style={courseCard}>
-              <h4>Web Development</h4>
-              <p>Core CS · 12 weeks</p>
-              <a href="https://www.youtube.com/watch?v=nu_pCVPKzTk" target="_blank" rel="noreferrer">Preview</a>
+            <div className="course-card">
+              <h4 className="course-title">Web Development</h4>
+              <p className="course-meta">Core CS · 12 weeks</p>
+              <a href="https://www.youtube.com/watch?v=nu_pCVPKzTk" target="_blank" rel="noreferrer" className="course-link">Preview</a>
             </div>
-            <div style={courseCard}>
-              <h4>Power BI</h4>
-              <p>Business · 6 weeks</p>
-              <a href="https://www.youtube.com/watch?v=FwjaHCVNBWA" target="_blank" rel="noreferrer">Preview</a>
+            <div className="course-card">
+              <h4 className="course-title">Power BI</h4>
+              <p className="course-meta">Business · 6 weeks</p>
+              <a href="https://www.youtube.com/watch?v=FwjaHCVNBWA" target="_blank" rel="noreferrer" className="course-link">Preview</a>
             </div>
           </div>
         </section>
 
-        <footer style={{ marginTop: 40, textAlign: "center", color: "#666" }}>
+        <footer className="home-footer">
           © {new Date().getFullYear()} StudyHub
         </footer>
       </div>
     </>
   );
 }
-
-const cardStyle = {
-  padding: 14,
-  borderRadius: 8,
-  border: "1px solid #eee",
-  textDecoration: "none",
-  color: "inherit",
-  background: "#fff"
-};
-
-const courseCard = {
-  padding: 12,
-  borderRadius: 8,
-  border: "1px solid #eee",
-  width: 220,
-};
